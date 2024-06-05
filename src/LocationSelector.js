@@ -57,27 +57,24 @@ const LocationSelector = () => {
       <h2>Select Location</h2>
       <div className="location-selector-box">
         <label>
-          Select Country:
           <select value={selectedCountry} onChange={handleCountryChange}>
-            <option value="">--Select Country--</option>
+            <option value="">Select Country</option>
             {countries.map(country => (
               <option key={country} value={country}>{country}</option>
             ))}
           </select>
         </label>
         <label>
-          Select State:
           <select value={selectedState} onChange={handleStateChange} disabled={!selectedCountry}>
-            <option value="">--Select State--</option>
+            <option value="">Select State</option>
             {states.map(state => (
               <option key={state} value={state}>{state}</option>
             ))}
           </select>
         </label>
         <label>
-          Select City:
           <select value={selectedCity} onChange={handleCityChange} disabled={!selectedState}>
-            <option value="">--Select City--</option>
+            <option value="">Select City</option>
             {cities.map(city => (
               <option key={city} value={city}>{city}</option>
             ))}
