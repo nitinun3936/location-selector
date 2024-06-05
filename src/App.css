@@ -7,33 +7,3 @@
   background-color: #f5f5f5;
   font-family: Arial, sans-serif;
 }
-
-.location-selector-container {
-  text-align: left;
-}
-
-.location-selector-box {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 800px;
-  background-color: white;
-}
-
-label {
-  margin: 0 10px;
-}
-
-select {
-  margin-left: 5px;
-  padding: 5px;
-  font-size: 1em;
-}
-
-h2 {
-  margin-bottom: 10px;
-  text-align: center;
-}

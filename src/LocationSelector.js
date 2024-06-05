@@ -21,6 +21,9 @@ const LocationSelector = () => {
       axios.get(`https://crio-location-selector.onrender.com/country=${selectedCountry}/states`)
         .then(response => setStates(response.data))
         .catch(error => console.error('Error fetching states:', error));
+    } else {
+      setStates([]);
+      setCities([]);
     }
   }, [selectedCountry]);
 
@@ -29,20 +32,19 @@ const LocationSelector = () => {
       axios.get(`https://crio-location-selector.onrender.com/country=${selectedCountry}/state=${selectedState}/cities`)
         .then(response => setCities(response.data))
         .catch(error => console.error('Error fetching cities:', error));
+    } else {
+      setCities([]);
     }
   }, [selectedState]);
 
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
-    setStates([]);
-    setCities([]);
     setSelectedState('');
     setSelectedCity('');
   };
 
   const handleStateChange = (e) => {
     setSelectedState(e.target.value);
-    setCities([]);
     setSelectedCity('');
   };
 
@@ -55,24 +57,27 @@ const LocationSelector = () => {
       <h2>Select Location</h2>
       <div className="location-selector-box">
         <label>
+          Select Country:
           <select value={selectedCountry} onChange={handleCountryChange}>
-            <option value="">Select Country</option>
+            <option value="">--Select Country--</option>
             {countries.map(country => (
               <option key={country} value={country}>{country}</option>
             ))}
           </select>
         </label>
         <label>
+          Select State:
           <select value={selectedState} onChange={handleStateChange} disabled={!selectedCountry}>
-            <option value="">Select State</option>
+            <option value="">--Select State--</option>
             {states.map(state => (
               <option key={state} value={state}>{state}</option>
             ))}
           </select>
         </label>
         <label>
+          Select City:
           <select value={selectedCity} onChange={handleCityChange} disabled={!selectedState}>
-            <option value="">Select City</option>
+            <option value="">--Select City--</option>
             {cities.map(city => (
               <option key={city} value={city}>{city}</option>
             ))}
@@ -81,7 +86,7 @@ const LocationSelector = () => {
       </div>
       {selectedCity && (
         <div>
-          <p>You Selected {selectedCity}, {selectedState}, {selectedCountry}</p>
+          <p>You selected {selectedCity}, {selectedState}, {selectedCountry}</p>
         </div>
       )}
     </div>
