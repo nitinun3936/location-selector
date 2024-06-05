@@ -1,0 +1,25 @@
+.location-selector-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: white;
+  }
+  
+  label {
+    margin: 0 10px;
+  }
+  
+  select {
+    margin-left: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
